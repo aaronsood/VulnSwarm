@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "vulnswarm"
+version = "0.1.0"
+description = "Multi-Agent AI Security Testing Framework"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "aaronsood", email = "aaronsood@users.noreply.github.com" }]
+requires-python = ">=3.10"
+keywords = ["security", "penetration-testing", "ai-agents", "vulnerability-scanner", "llm"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Topic :: Security",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+dependencies = [
+    "langchain>=0.2.0",
+    "langchain-core>=0.2.0",
+    "langchain-anthropic>=0.1.0",
+    "langchain-openai>=0.1.0",
+    "langchain-google-genai>=1.0.0",
+    "langchain-ollama>=0.1.0",
+    "requests>=2.31.0",
+    "rich>=13.0.0",
+    "python-dotenv>=1.0.0",
+    "pathlib2>=2.3.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "black", "ruff"]
+audit = ["pip-audit"]
+
+[project.scripts]
+vulnswarm = "cli.main:run_cli"
+
+[project.urls]
+Homepage = "https://github.com/aaronsood/VulnSwarm"
+Repository = "https://github.com/aaronsood/VulnSwarm"
+Issues = "https://github.com/aaronsood/VulnSwarm/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["vulnswarm*", "cli*"]
